@@ -1,0 +1,20 @@
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10em; /* Abstand zwischen den Karten */
+}
+
+.card-container {
+    width: 330px;
+    height: 440px;
+    border: solid 1px rgb(138, 134, 134);
+    border-radius: 1em; /* Abgerundete Ecken */
+    box-shadow: 5px 5px 5px grey;
+}
+
+@media (max-width: 900px) {
+    .game-container {
+        flex-direction: column;
+    }
+}

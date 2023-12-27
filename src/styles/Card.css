@@ -1,0 +1,18 @@
+.card-ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-image{
+    width: 100%;
+}
+
+.card.clickable li {
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card.clickable li:hover {
+    background-color: #f0f0f0; 
+    color: #333;
+}
