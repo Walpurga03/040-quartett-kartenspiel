@@ -48,43 +48,6 @@ export const compareCardProperties = (playerCard, computerCard, propertyName) =>
       computerValue: computerValue
   };
 };
-
-/*Zweck: Diese Funktion aktualisiert die Kartenstapel basierend auf dem Ergebnis des Kartenvergleichs. Karten werden zwischen Spieler- und Computerstapel verschoben, oder es werden Karten zum Unentschieden-Stapel hinzugefügt.
-Anwendung: Wird aufgerufen, nachdem das Ergebnis des Kartenvergleichs feststeht, um die Kartenstapel entsprechend zu aktualisieren. */
-export const updateCardStacks = (result, playerCards, computerCards, drawPile, setPlayerCards, setComputerCards, setDrawPile, setGameOver, setLastWinner, setShowComputerChoiceButton, setPlayerTurn) => {
-  let updatedPlayerCards = [...playerCards];
-  let updatedComputerCards = [...computerCards];
-  let updatedDrawPile = [...drawPile];
-
-  if (result === 'win') {
-    setLastWinner('player');
-    setShowComputerChoiceButton(false);
-    updatedPlayerCards.push(computerCards[0], playerCards[0], ...updatedDrawPile);
-    updatedComputerCards.shift(); 
-    updatedPlayerCards.shift();
-    updatedDrawPile = [];
-    setPlayerTurn(true);
-  } else if (result === 'lose') {
-    setShowComputerChoiceButton(true);
-    setLastWinner('computer');
-    updatedComputerCards.push(playerCards[0], computerCards[0], ...updatedDrawPile);
-    updatedComputerCards.shift();
-    updatedPlayerCards.shift();
-    updatedDrawPile = [];
-  } else if (result === 'draw') {
-    updatedDrawPile.push(playerCards[0], computerCards[0]);
-    updatedPlayerCards.shift();
-    updatedComputerCards.shift();
-  }
-
-  setPlayerCards(updatedPlayerCards);
-  setComputerCards(updatedComputerCards);
-  setDrawPile(updatedDrawPile);
-
-  if (updatedPlayerCards.length === 0 || updatedComputerCards.length === 0) {
-    setGameOver(true);
-  }
-};
 /*Zweck: Diese Funktion bestimmt die stärkste Eigenschaft einer Computerkarte, die für den Vergleich mit einer Spielerkarte verwendet werden soll.
 Anwendung: Wird genutzt, um für den Computerzug die optimale Eigenschaft für den Vergleich auszuwählen. */
 export const selectHighestPropertyForComputer = (computerCard) => {

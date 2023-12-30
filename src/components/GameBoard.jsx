@@ -1,9 +1,9 @@
-import '../styles/GameBoard.css';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
 import Card from './Card';
+import '../styles/GameBoard.css';
 
 const GameBoard = () => {
     const { playerCards, computerCards, isGameStarted, isPlayerTurn, lastResult, lastSelectedProperty, lastPlayerValue, lastComputerValue, gameOver } = useSelector(state => state.game);
@@ -58,7 +58,7 @@ const GameBoard = () => {
     }
 
     return (
-        <div>
+        <>
             {gameOver ? (
                 <div className="end-game-message">
                     {playerCards.length === 0 ? "Spiel verloren!" : "Spiel gewonnen!"}
@@ -98,14 +98,13 @@ const GameBoard = () => {
                                     />
                                 }
                             </div>
-                          
                         </div>
                     ) : (
                         <button onClick={handleStartGame}>Spiel Starten</button>
                     )}
                 </>
             )}
-        </div>
+        </>
     );
     
 };
