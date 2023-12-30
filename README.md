@@ -1,4 +1,4 @@
-Quartett-Kartenspiel
+# Quartett-Kartenspiel
 Beschreibung
 Dieses Projekt ist eine interaktive Umsetzung des klassischen Quartett-Kartenspiels, programmiert mit React und Redux. Es ermöglicht Spielern, gegen einen computergesteuerten Gegner anzutreten. Das Spiel verwendet eine Sammlung von Karten, jede mit unterschiedlichen Eigenschaften, und basiert auf dem Vergleich dieser Eigenschaften, um einen Gewinner für jede Runde zu bestimmen.
 
