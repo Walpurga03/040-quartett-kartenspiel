@@ -19,37 +19,36 @@ export const dealCards = (shuffledCards) => {
 Anwendung: Wird aufgerufen, wenn der Spieler eine Eigenschaft auswählt, um sie mit der entsprechenden Eigenschaft der Computerkarte zu vergleichen. */
 export const compareCardProperties = (playerCard, computerCard, propertyName) => {
   const propertyNamesMapping = {
-    property0: 'Jahr',
-    property1: 'Seit',
-    property2: 'Knappheit',
-    property3: 'Lebensdauer',
-    property4: 'Teilbarkeit',
-    property5: 'Transportfähigkeit'
+      property0: 'Jahr',
+      property1: 'Seit',
+      property2: 'Knappheit',
+      property3: 'Lebensdauer',
+      property4: 'Teilbarkeit',
+      property5: 'Transportfähigkeit'
   };
-  
-  console.log(`Eigenschaften vergleichen: ${propertyName}, Spielerkarte:`, playerCard);
-  console.log(`Eigenschaften vergleichen: ${propertyName}, Computerkarte:`, computerCard);
-  const propertyToCompare = propertyName === 'property1' ? 'property0' : propertyName;
 
+  const propertyToCompare = propertyName === 'property1' ? 'property0' : propertyName;
   const readablePropertyName = propertyNamesMapping[propertyToCompare];
   const playerValue = playerCard[propertyToCompare];
   const computerValue = computerCard[propertyToCompare];
-  console.log(`Vergleich auf Basis von '${propertyToCompare}': Spieler = ${playerValue}, Computer = ${computerValue}`);
 
+  let result;
   if (playerValue > computerValue) {
-      console.log("Ergebnis: Spieler gewinnt");
-      console.log(readablePropertyName, playerValue, computerValue);
-      return 'win';
+      result = 'win';
   } else if (playerValue < computerValue) {
-      console.log("Ergebnis: Spieler verliert");
-      console.log(readablePropertyName, playerValue, computerValue);
-      return 'lose';
+      result = 'lose';
   } else {
-      console.log("Ergebnis: Unentschieden");
-      console.log(propertyToCompare, playerValue, computerValue);
-      return 'draw';
+      result = 'draw';
   }
+
+  return {
+      result: result,
+      propertyName: readablePropertyName,
+      playerValue: playerValue,
+      computerValue: computerValue
+  };
 };
+
 /*Zweck: Diese Funktion aktualisiert die Kartenstapel basierend auf dem Ergebnis des Kartenvergleichs. Karten werden zwischen Spieler- und Computerstapel verschoben, oder es werden Karten zum Unentschieden-Stapel hinzugefügt.
 Anwendung: Wird aufgerufen, nachdem das Ergebnis des Kartenvergleichs feststeht, um die Kartenstapel entsprechend zu aktualisieren. */
 export const updateCardStacks = (result, playerCards, computerCards, drawPile, setPlayerCards, setComputerCards, setDrawPile, setGameOver, setLastWinner, setShowComputerChoiceButton, setPlayerTurn) => {

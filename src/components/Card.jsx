@@ -12,7 +12,7 @@ const Card = ({ card, onPropertyClick, isClickable }) => {
     const renderProperties = () => {
         return (
             <ul className='card-ul'>
-                <li onClick={() => handlePropertyClick('property0')}>{card.property1D}: {card.property0}</li>
+                <li onClick={() => handlePropertyClick('property0')}>{card.property1D}: {card.property1}</li>
                 <li onClick={() => handlePropertyClick('property2')}>{card.property2D}: {card.property2}</li>
                 <li onClick={() => handlePropertyClick('property3')}>{card.property3D}: {card.property3}</li>
                 <li onClick={() => handlePropertyClick('property4')}>{card.property4D}: {card.property4}</li>

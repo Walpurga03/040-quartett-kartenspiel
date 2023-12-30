@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10em; /* Abstand zwischen den Karten */
+    gap: 10em;
 }
 
 .card-container {
@@ -16,5 +16,17 @@
 @media (max-width: 900px) {
     .game-container {
         flex-direction: column;
+        gap: 3em;
     }
+}
+
+.result{
+    background-color: aqua;
+
+}
+
+.end-game-message {
+    margin-top: 20px;
+    font-size: 24px;
+    color: red;
 }
