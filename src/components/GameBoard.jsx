@@ -78,9 +78,11 @@ const GameBoard = () => {
                                 }
                             </div>
                             <div className='result'>
-                            {!isPlayerTurn && (
-                                <button onClick={handleComputerTurn}>Computerzug</button>
-                                )}
+                                <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
+                                    {!isPlayerTurn && (
+                                        <button onClick={handleComputerTurn}>Computerzug</button>
+                                    )}
+                            </div>    
                               {lastResult && (
                                   <div className="comparison-result">
                                     {lastSelectedProperty}<br/>
