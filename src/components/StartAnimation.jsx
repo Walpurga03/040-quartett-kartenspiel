@@ -41,7 +41,7 @@ const StartAnimation = ({ onAnimationEnd }) => {
         })
         .add({
             targets: '.text span', 
-            translateX: [0, 0],
+            translateX: [0, 20],
             scale: [1, 50],
             opacity: [1, 0],
             easing: "easeOutExpo",
